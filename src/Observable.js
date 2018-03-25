@@ -25,6 +25,19 @@ export default class Observable {
     });
   }
 
+  static fromPromise(promise) {
+    return new Observable(observer => {
+      promise.then(val => {
+        observer.next(val);
+        observer.complete();
+      })
+      .catch(e => {
+        observer.error(val);
+        observer.complete();
+      });
+    })
+  }
+
   map(mapFn) {
     return new Observable(observer => {
       return this.subscribe({
