@@ -2,7 +2,7 @@
   "name": "build-your-own-observable",
   "version": "1.0.0",
   "description": "Learning observable by building your own observable.",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
     "build": "parcel build index.html --public-url ./"
