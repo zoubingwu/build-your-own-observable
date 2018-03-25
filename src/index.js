@@ -23,9 +23,9 @@ dataStream$
 
 // turn click event to observable
 const button = document.getElementById('button');
-const click$ = Observable.fromEvent(button, 'click').map(e => e.clientX);
+const click$ = Observable.fromEvent(button, 'click');
 
 const unsubscribe = click$.subscribe({
-  next: val => console.log(val)
+  next: () => console.log('clicked!')
 })
 setTimeout(() => unsubscribe(), 30000);
