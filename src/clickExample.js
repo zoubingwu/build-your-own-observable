@@ -1,3 +1,5 @@
+import Observable from './Observable';
+
 export default function() {
   // turn click event to observable
   const button = document.getElementById('button');

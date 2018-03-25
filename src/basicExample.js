@@ -1,3 +1,5 @@
+import Observable from './Observable';
+
 export default function() {
   // basic exemple
   const dataStream$ = new Observable(observer => {
