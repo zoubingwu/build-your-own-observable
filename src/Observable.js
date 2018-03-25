@@ -47,4 +47,30 @@ export default class Observable {
       });
     });
   }
+
+  mergeMap(anotherFunctionThatThrowsValues) {
+    return new Observable(observer => {
+      return this.subscribe({
+        next(val) {
+          anotherFunctionThatThrowsValues(val).subscribe({
+            next(val) {
+              observer.next(val);
+            },
+            error(e) {
+              observer.error(e);
+            },
+            complete() {
+              observer.complete();
+            },
+          });
+        },
+        error(e) {
+          observer.error(e);
+        },
+        complete() {
+          observer.complete();
+        },
+      });
+    });
+  }
 }
