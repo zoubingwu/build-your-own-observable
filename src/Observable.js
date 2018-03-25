@@ -18,6 +18,13 @@ export default class Observable {
     });
   }
 
+  static fromArray(array) {
+    return new Observable(observer => {
+      array.forEach(val => observer.next(val));
+      observer.complete();
+    });
+  }
+
   map(mapFn) {
     return new Observable(observer => {
       return this.subscribe({
